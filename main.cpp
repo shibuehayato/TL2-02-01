@@ -1,8 +1,5 @@
 #include <cstdio>
 #include <cstdlib>
-#include <cassert>
-#include "TextureConverter.h"
-#include <combaseapi.h>
 
 // コマンドライン引数
 enum Argument {
@@ -14,20 +11,13 @@ enum Argument {
 
 int main(int argc, char* argv[])
 {
-	assert(argc >= NumArgument);
-
-	// COM ライブラリの初期化
-	HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
-	assert(SUCCEEDED(hr));
-
-	// テクスチャコンバーター
-	TextureConverter converter;
-
-	// テクスチャ変換
-	converter.ConvertTextureWICToDDS(argv[kFilePath]);
-
-	// COM ライブラリの終了
-	CoUninitialize();
+	// argcの数だけ繰り返す
+	for (int i = 0; i < argc; i++) {
+		// 文字列argvのi番を表示
+		printf(argv[i]);
+		// 改行
+		printf("\n");
+	}
 
 	system("pause");
 	return 0;
