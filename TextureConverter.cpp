@@ -115,5 +115,6 @@ void TextureConverter::SaveDDSTextureToFile()
 	// DDSファイル書き出し
 	result = SaveToDDSFile(scratchImage_.GetImages(), scratchImage_.GetImageCount(), metadata_,
 		DDS_FLAGS_NONE, filePath.c_str());
+
 	assert(SUCCEEDED(result));
 }
